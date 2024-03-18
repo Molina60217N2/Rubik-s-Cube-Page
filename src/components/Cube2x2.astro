@@ -1,11 +1,11 @@
-<div class="col-span-1 h-96" id="skewed-container">
-    <h1>skewed</h1>
+<div class="col-span-1 h-96" id="2x2-container">
+    <h1>2x2</h1>
 </div>
 <script>
     import * as THREE from "three";
     import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-    const $cubes = document.getElementById("skewed-container");
+    const $cubes = document.getElementById("2x2-container");
 
     if ($cubes) {
         const scene = new THREE.Scene();
@@ -34,7 +34,7 @@
             });
         }
 
-        loadModel("/assets/3dmodels/skewed.glb", [0, 0, 0], [70, 70, 70]);
+        loadModel("/assets/3dmodels/rubiks2x2.glb", [0, 0, 0], [0.10, 0.10, 0.10]);
 
         function updateCameraAndRendererSize() {
             if ($cubes) {
