@@ -1,11 +1,11 @@
-<div class="col-span-1 h-96" id="pyramix-container">
-    <h1 class="text-2xl md:text-3xl text-center mx-auto font-extrabold m-0 translate-y-10">Pyramix</h1>
+<div class="col-span-1 h-96" id="skewbex-container">
+    <h1 class="text-2xl md:text-3xl text-center mx-auto font-extrabold m-0 translate-y-10">Skewb Extreme</h1>
 </div>
 <script>
     import * as THREE from "three";
     import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-    const $cubes = document.getElementById("pyramix-container");
+    const $cubes = document.getElementById("skewbex-container");
 
     if ($cubes) {
         const scene = new THREE.Scene();
@@ -34,7 +34,7 @@
             });
         }
 
-        loadModel("/assets/3dmodels/pyramix.glb", [0, 0, 0], [4, 4, 4]);
+        loadModel("/assets/3dmodels/skewb_xtreme.glb", [0, 0, 0], [4, 4, 4]);
 
         function updateCameraAndRendererSize() {
             if ($cubes) {

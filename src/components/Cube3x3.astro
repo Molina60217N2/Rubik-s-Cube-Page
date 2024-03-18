@@ -1,5 +1,5 @@
 <div class="col-span-1 h-96" id="3x3-container">
-    <h1>3x3</h1>
+    <h1 class="text-2xl md:text-3xl text-center mx-auto font-extrabold m-0 translate-y-10">3x3</h1>
 </div>
 <script>
     import * as THREE from "three";
@@ -53,7 +53,7 @@
             if (models.length > 0) {
                 const time = Date.now() * 0.001;
                 models.forEach((model) => {
-                    model.rotation.y = time * 0.5;
+                    model.rotation.y = time * -0.5;
                     model.rotation.x = time * 0.5;
                 });
             }

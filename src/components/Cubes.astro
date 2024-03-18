@@ -3,16 +3,21 @@ import Cube3x3 from "./Cube3x3.astro"
 import Skewed from "./Skewed.astro"
 import Pyramix from "./Pyramix.astro"
 import Cube2x2 from "./Cube2x2.astro"
+import Megaminx from "./Megaminx.astro"
+import SkewebX from "./SkewbExtreme.astro"
 ---
 
 
-<div class="bg-cyan-200" >
-  <h1>MÁS QUE EL SIMPLE CUBO RUBIK</h1>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" >
+<div class="bg-cyan-200 text-center pt-6" >
+  <h1 class="text-2xl md:text-6xl mx-auto w-fit">Más allá del simple Cubo Rubik</h1>
+  <p class="text-sm md:text-2xl">Aparte del clásico cubo 3x3, existen muchas variantes en formas, colores y números de caras. ¡El límite es la imagincación!</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6" >
     <Cube3x3/>
     <Skewed/>
     <Pyramix/>
     <Cube2x2/>
+    <Megaminx/>
+    <SkewebX/>
   </div>
 </div>
 
