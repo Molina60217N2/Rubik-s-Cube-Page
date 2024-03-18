@@ -1,0 +1,61 @@
+<div class="col-span-1" id="3x3-container">
+  <h1>3X3</h1>
+</div>
+<script>
+  import * as THREE from "three";
+  import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+
+  const $cubes = document.getElementById("3x3-container");
+
+  if ($cubes) {
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+      camera.position.z = 10;
+      scene.add(camera);
+
+      const renderer = new THREE.WebGLRenderer();
+      if ($cubes.offsetWidth && $cubes.offsetHeight) {
+          renderer.setSize($cubes.offsetWidth, $cubes.offsetHeight * 10);
+      }
+      renderer.setClearColor(0xffffff, 0);
+
+      $cubes.appendChild(renderer.domElement);
+      const loader = new GLTFLoader();
+      let models: THREE.Object3D[] = [];
+
+      const ambientLight = new THREE.AmbientLight(0xffffff);
+      ambientLight.intensity = 3;
+      scene.add(ambientLight);
+
+      // Define la función para cargar modelos
+      function loadModel(path: string, position: [number, number, number], scale: [number, number, number]) {
+          loader.load(path, (gltf) => {
+              const model = gltf.scene;
+              model.position.set(position[0], position[1], position[2]);
+              model.scale.set(scale[0], scale[1], scale[2]);
+              models.push(model);
+              scene.add(model);
+          });
+      }
+
+      // Carga de modelos  Posicion xyz
+      loadModel("/assets/3dmodels/rubiks3x3.glb", [0, 0, 0], [1, 1, 1]);
+
+      function animate() {
+          requestAnimationFrame(animate);
+
+          // Actualiza la posición y rotación de cada modelo
+          if (models.length > 0) {
+              const time = Date.now() * 0.001;
+              models.forEach((model) => {
+                  model.rotation.y = time * 0.5;
+                  model.rotation.x = time * 0.5;
+              });
+          }
+
+          renderer.render(scene, camera);
+      }
+
+      animate();
+  }
+</script>
